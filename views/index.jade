@@ -1,0 +1,14 @@
+extends layout
+ 
+block head
+  script(type='text/javascript', src='/javascripts/controllers/mylinks.js')
+
+block content
+   div.container(ng-controller="LinksController", ng-init="getAll( #{JSON.stringify(myLinks)} )")
+       h1 Minha lista de links
+       ul
+         li(ng-repeat="link in colecaoLinks")
+            a(href='{{link.url}}') {{link.description}}
+       <input type="button" ng-click="update()" value="Atualizar"/>
+   
+         
